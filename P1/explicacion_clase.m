@@ -23,6 +23,9 @@ freq = [2, 5, 1, 3];
 freq = [2/10, 5/10, 1/10, 3/10];
 %en matlab se puede hacer con matricial
 
+%para normalizar tenermos que dividir cada posicion del vector con la suma
+%total de todos los caracteres que hemos leido. 
+
 %en matlab la primera posicion de un vector es 1. ergo no podemos acceder a
 %la posicion 0, tendremos que sumar 1. 
 
