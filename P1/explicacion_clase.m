@@ -48,3 +48,8 @@ freq = [2/10, 5/10, 1/10, 3/10];
 %La entropia antes estaba entre 0 y 8, ahora tendremos entre 0 y 16
 %El tam optimo de un compresor es la entropia dividio entre 8, 16, 24 lo
 %que sea
+
+a = dec2bin(hex2dec('69'));
+b = dec2bin(hex2dec('76'));
+c = strcat(a,b);
+index = bin2dec(c);
