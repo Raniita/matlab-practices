@@ -15,12 +15,17 @@ while ~feof(file)
                 simb = dec2bin(read_bloque(i),8);
                 index = simb;
             else
-                simb = dec2bin(read_bloque(i),8);
-                index = strcat(index, simb);
+                if numel(read_bloque) == 1
+                    simb = dec2bin(255,8);
+                    index = strcat(index, simb);
+                else
+                    simb = dec2bin(read_bloque(i),8);
+                    index = strcat(index, simb);
+                end
             end
         end
         
-        index = bin2dec(index); 
+        index = bin2dec(index) + 1; 
         freq(index) = freq(index) + 1;
     end
 end

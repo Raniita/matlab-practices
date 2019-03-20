@@ -18,4 +18,4 @@ for p=0:0.1:1
     entropy(index_prob) = entropia(freq);
 end
 
-histogram(entropy,11)
+plot(0:0.1:1, entropy);
