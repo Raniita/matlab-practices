@@ -51,7 +51,7 @@ p = [15 NaN NaN NaN 24]
 % indiceB -> 24
 indiceA = [5, 3, 5, 1]
 indiceB = [4, 2, 3, 5]
-p = [31 NaN NaN NaN NaN]
+p = [39 NaN NaN NaN NaN]
 
 % si volvemos a llamar tendremos que devolver indices a -1 y devolver tal
 % cual p.
@@ -115,3 +115,65 @@ C{3} = '010'
 % los cells admiten los parenteisi pero no se refieren a lo mismo. 
 
 %% funcion huffman
+% podemos obtener la frecuencia ya sea poniendo las frecuencias
+% directamente o bien usando las funciones de la practica anterior. 
+% Como resultado de la funcion, lo que haremos es recibir code, es de tipo
+% cell. 
+
+% para la parte siguiente de la practica, lo que haremos es hacer las
+% funciones de codifica y decodifica. 
+
+%% funciones codifica y decodifica
+flujo = codifica(texto, codigo)
+% mandamos un texto y lo tenemos que convertir dependiento de ese codigo
+% huffman, consideramors que el alfabeto tiene 256 simbolos y cada caracter
+% tiene un byte de un particula codigo huffman. 
+
+% si escribimos un Hola, asignamos un huffman para eso. 
+% para la H tenemos el caracter 72 -> 0111
+
+% creamos una var bin en la que iremos añadiendo los binarios de las letras
+% que vayamos leyendo dependiendo del codigo huyffman.
+
+% para la o por ejemplo 111 -> 110
+
+% todo esto hasta que obtenga el ultimo char de la string.
+
+% tenemos que tener en cuenta de que matlaba trabaja sobre indices 1, por
+% lo que tendremos que ajustar los indices para 1-256. Cuando leemos la
+% letra o, estamos leyendo 72, pero tenemos que leer en nuestro codigo el
+% 73. 
+
+% decodifica
+[longitud,texto,nuevoflujo] = decodifica(flujo, codigo)
+
+% tiene que extraer que simbolo corresponde con el codigo que nosotros
+% tenemos. Lo que utiliza es el principal propiedad de huffman code, es
+% basicamente que un codigo nunca es un prefijo de otro codigo, por lo que
+% siempre que encontremos el final de un codigo no tenemos que seguir
+% buscando otro codigo de nuestra lockup table. 
+
+% empezamos por el primer bit, buscamos en la lockup table si hay match, si
+% no lo hay añadimos otro bit en la busqueda, si no encontramos un match,
+% volvemos a añadir otro bit. En el caso de que encontremos un simbolo,
+% eliminamos esa ristra de bits y añadimos el simbolo al texto.
+
+% para el ejemplo de hola, se han añadido 2 bits adicionales al stream. Si
+% no encontramos algo en la lockup table, lo que hacemos con el resto es
+% que lo devolvemos en la variable nuevoflujo. Se usara dos funciones, que
+% nos dara el profesor, para comprimir y decomprimir archivos, ahora
+% podemos usar estas funciones para comprimir un flujo de bits. La funcion
+% de compres llama la funcion codifica, por lo que tiene que ser funcional.
+
+% Experimento
+code = calculoFrecuencias('quijote.txt')
+stream = codifica('Hola mundo', code)
+stream = [stream, '11']
+[long, text, newstream] = decodifica(stream,code)
+% text -> Hola Mundo
+% newstream -> 11
+
+% haremos experimentos para comprimir unos binarios con cada huffman de
+% cada libro y veremos como es considerablemente inferior la compresion
+% comparado con el caso de que utilizemos su propio codigo huffman
+
