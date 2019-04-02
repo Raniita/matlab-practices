@@ -10,6 +10,8 @@ end
 %% Ejecucion de expande
 codigo = {'','','','',''};
 
-for i=i:length(p)-1
-    [codigo] = expande(codigo, indA, indB);
+for i=length(p)-1:-1:1
+    codigo = expande(codigo, indA(i), indB(i));
 end
+
+celldisp(codigo)

@@ -166,7 +166,8 @@ flujo = codifica(texto, codigo)
 % de compres llama la funcion codifica, por lo que tiene que ser funcional.
 
 % Experimento
-code = calculoFrecuencias('quijote.txt')
+frecuencias = calculoFrecuencias('quijote.txt')
+code = huffman(frecuencias)
 stream = codifica('Hola mundo', code)
 stream = [stream, '11']
 [long, text, newstream] = decodifica(stream,code)
