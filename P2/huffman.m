@@ -1,20 +1,27 @@
-function code = huffman(freq)
+function code = huffman(p)
 % code -> de tipo cell
-% freq -> las frecuencias de los simbolos
+% p -> las frecuencias de los simbolos
 
-indA = zeros(1,length(freq)-1);
-indB = zeros(1,length(freq)-1);
-code = cell(1,length(freq));
+indA = zeros(1,length(p)-1);
+indB = zeros(1,length(p)-1);
+
+% Creamos la cell. Es equivalente a la forma del profesor
+code = cell(1,length(p));
 code(:) = {''};
 
+iter = 1;
+acumulado = NaN;
+
 % Compactamos el arbol
-for i=1:length(freq)-1
-   [indA(i),indB(i), acumulado, freq] = compacta(freq); 
+while acumulado ~= 0
+   [indA(iter),indB(iter), acumulado, p] = compacta(p); 
+   iter = iter + 1;
 end
 
 % Expandimos el arbol
-for i=length(freq)-1:-1:1
-    code = expande(code, indA(i), indB(i));
+while iter > 1
+    iter = iter - 1;
+    code = expande(code, indA(iter), indB(iter));
 end
 
 end

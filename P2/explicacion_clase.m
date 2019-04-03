@@ -123,7 +123,7 @@ C{3} = '010'
 % para la parte siguiente de la practica, lo que haremos es hacer las
 % funciones de codifica y decodifica. 
 
-%% funciones codifica y decodifica
+%% Codifica
 flujo = codifica(texto, codigo)
 % mandamos un texto y lo tenemos que convertir dependiento de ese codigo
 % huffman, consideramors que el alfabeto tiene 256 simbolos y cada caracter
@@ -144,7 +144,7 @@ flujo = codifica(texto, codigo)
 % letra o, estamos leyendo 72, pero tenemos que leer en nuestro codigo el
 % 73. 
 
-% decodifica
+%% decodifica
 [longitud,texto,nuevoflujo] = decodifica(flujo, codigo)
 
 % tiene que extraer que simbolo corresponde con el codigo que nosotros
@@ -165,7 +165,7 @@ flujo = codifica(texto, codigo)
 % podemos usar estas funciones para comprimir un flujo de bits. La funcion
 % de compres llama la funcion codifica, por lo que tiene que ser funcional.
 
-% Experimento
+%% Experimento
 frecuencias = calculoFrecuencias('quijote.txt')
 code = huffman(frecuencias)
 stream = codifica('Hola mundo', code)
