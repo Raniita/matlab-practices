@@ -10,10 +10,10 @@ code = cell(1,length(p));
 code(:) = {''};
 
 iter = 1;
-acumulado = NaN;
+acumulado = 0;
 
 % Compactamos el arbol
-while acumulado ~= 0
+while ~isnan(acumulado)
    [indA(iter),indB(iter), acumulado, p] = compacta(p); 
    iter = iter + 1;
 end

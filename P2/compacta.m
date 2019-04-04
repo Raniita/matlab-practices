@@ -26,7 +26,7 @@ nuevop(indB) = acumulado;
 if isnan(acumulado)
     indA = -1;
     indB = -1;
-    acumulado = 0;
+    acumulado = NaN;
     nuevop = p;
 end
 
