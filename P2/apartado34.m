@@ -4,12 +4,19 @@ size = zeros(1,6);
 size_matrix = zeros(6,6); 
 percent_matrix = zeros(6,6);
 
-for i=1:length(archivos)
-    F = fopen(archivos{i},'r');
-    s = dir(archivos{i});
+%Rellemamos el vector de size
+fprintf('--> Rellenamos el vector de pesos \n')
+for a=1:length(archivos)
+    F = fopen(archivos{a},'r');
+    s = dir(archivos{a});
     size_code = s.bytes;
-    size(i) = size_code;
+    size(a) = size_code;
     fclose(F);
+end
+
+fprintf('--> Comienza la compresion \n')
+for i=1:length(archivos)
+    %Creamos carpeta para guardar los archivos comprimidos
     folder_name = strcat(archivos{i},'_dir');
     mkdir(folder_name);
     
@@ -29,7 +36,7 @@ for i=1:length(archivos)
         s = dir(fname);
         size_source = s.bytes;
         size_matrix(i,j) = size_source;
-        percent_matrix(i,j) = (size_source/size_code)*100;
+        percent_matrix(i,j) = (size_source/size(j))*100;
         fclose(F);
         
         fprintf('--> Movemos el archivo comprimido a %s \n', folder_name);
