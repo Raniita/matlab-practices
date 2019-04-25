@@ -41,8 +41,9 @@ for index=1:length(flujo)
     end
 end
 
+texto = char(texto);
 nuevoflujo = ventana;
-longitud = length(texto{1});
+longitud = length(texto);
 
 end
 
