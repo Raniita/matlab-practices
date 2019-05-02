@@ -3,28 +3,20 @@ function [HXY, HX, HY, HXcondY, HYcondX] = entropia_conjunta(P)
 % matriz P con la funcion de masa conjunta, siendo P(i,j)=prob(X=i,Y=j)
 
 % P como la matriz de masa.
-
-    % Primera version
     HXY = -sum(P(P~=0).*log2(P(P~=0)));
 
     % La entropia de las columnas es la entropia de Y.
-    Y = sum(P);
-    HY = entropia(Y);
+    PY = sum(P);
+    HY = entropia(PY);
    
     % La entropia de las filas es la p marginal de X.
-    X = sum(P,2);
-    HX = entropia(X);
+    PX = sum(P,2);
+    HX = entropia(PX);
     
-    % Probabilidad condicionada
-    %PXcondY = P./Y;
-    %PYcondX = P./X;
+    % Probabilidad condicionada y entropia condicionada
+    PXcondY = P/PY;
+    PYcondX = P/PX';
+    HXcondY = entropia(PXcondY);
+    HYcondX = entropia(PYcondX);
     
-    %HXcondY = entropia(PXcondY);
-    %HYcondX = entropia(PYcondX);
-    
-    HXcondY = 0;
-    HYcondX = 0;
-    
-    P(1,:); % Fila
-    P(:,1); % Columna
 end
