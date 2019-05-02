@@ -13,3 +13,4 @@
 % HXcondY = 2.58
 % HYcondX = 2.58
 % HX + HY = 5.17
+% I = 0
