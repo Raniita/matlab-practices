@@ -11,21 +11,30 @@ function [C, pX] = capacidad(Q)
 % la información mutua. 
 
 %obtenemos el numero de simbolos
-L = size(A,2);
+L = size(Q,2);
 
 %calculamos el vector de probabilidades. Obtenemos las parejas de
 %combinaciones
-M = permn([0:0.01:1], L);
+M = combinacionesX(L);
+
+%Creamos el vector de informaciones mutuas
+info = zeros(size(M,1), 1);
 
 %para el tamaño del vector obtenido, iteramos
 for i=1:size(M,1)
-    %multiplicamos Q, por la traspuesta del vector
+    %Calculamos P. multiplicamos Q, por la traspuesta del vector
     prob_vector = [M(i,1), M(i,2)]';
+    prob = repmat(prob_vector, 1, L);
+    P = Q .* prob;
     %De la P obtenida, calculamos la información mutua
+    I = informacionmutua(P);
     %guardamos la información mutua en el vector de infos
-
+    info(i) = I;
 end
 
 % cuando terminamos, calculamos el maximo, con dos outputs, para obtener el
 % indice
+[C, index] = max(info,[],1);
+% con ese indice vamos al vector de combinaciones
+pX = M(index, 1);
 end
