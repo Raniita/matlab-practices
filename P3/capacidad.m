@@ -22,14 +22,23 @@ info = zeros(size(M,1), 1);
 
 %para el tamaño del vector obtenido, iteramos
 for i=1:size(M,1)
-    %Calculamos P. multiplicamos Q, por la traspuesta del vector
-    prob_vector = [M(i,1), M(i,2)]';
+    
+    % Calculamos P. multiplicamos Q, por la traspuesta del vector
+    % Rellenamos el vector
+    for j=1:L
+        prob_vector(j) = M(i,j);
+    end
+    
+    prob_vector = prob_vector';
     prob = repmat(prob_vector, 1, L);
     P = Q .* prob;
     %De la P obtenida, calculamos la información mutua
     I = informacionmutua(P);
     %guardamos la información mutua en el vector de infos
     info(i) = I;
+    
+    % limpiamos prob_vector
+    prob_vector = 0;
 end
 
 % cuando terminamos, calculamos el maximo, con dos outputs, para obtener el
