@@ -7,7 +7,7 @@
 %% Ejemplo de dos dados de 6 caras
 % Podemos añadir asi todos los resultados al boletin de entrega en modo
 % resumen
-% HXY = 5,47
+% HXY = 5,17
 % HX = 2,58
 % HY = 2.58
 % HXcondY = 2.58
@@ -97,4 +97,7 @@
 % 10 (1-p)/3  (1-p)/3     p       (1-p)/3
 % 11 (1-p)/3  (1-p)/3  (1-p)/3       p 
 
-Q = [p (1-p)/3 (1-p)/3 (1-p)/3 ; (1-p)/3 p (1-p)/3 (1-p)/3; (1-p)/3 (1-p)/3 p (1-p)/3; (1-p)/3 (1-p)/3 (1-p)/3 p]
+Q = [p (1-p)/3 (1-p)/3 (1-p)/3 ; (1-p)/3 p (1-p)/3 (1-p)/3; (1-p)/3 (1-p)/3 p (1-p)/3; (1-p)/3 (1-p)/3 (1-p)/3 p];
+
+% Si depende de los errores en los bits
+Q = [p (1-p)/4 (1-p)/4 2*(1-p)/4 ; (1-p)/4 p 2*(1-p)/4 (1-p)/4; (1-p)/4 2*(1-p)/4 p (1-p)/4; 2*(1-p)/4 (1-p)/4 (1-p)/4 p]
