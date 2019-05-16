@@ -20,6 +20,8 @@ M = combinacionesX(L);
 %Creamos el vector de informaciones mutuas
 info = zeros(size(M,1), 1);
 
+prob_vector = zeros(L,1);
+
 %para el tamaño del vector obtenido, iteramos
 for i=1:size(M,1)
     
