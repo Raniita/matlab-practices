@@ -15,3 +15,51 @@
 %% script2
 % r = (exitos)/N, para cada R=i se calculará todo. La tasa se calcula como
 % r * 1000/R
+
+%% Funcion paridad
+% cuenta los numeros de 1 y 0s, si el numero de 1 es par añade un 0 para
+% que sea par, y si el numero de 1 es impar añadimos un 1 para que sea par.
+% el objetivo es tener siempre los unos como par. Se añade al final. 
+
+
+%% Resumen scripts
+% script_1
+% TX
+f = ascii('hola mundo')
+
+% RX
+strcmp(F, f') % Si 0 -> error
+r = errores/N
+tasa = 1000 * r
+
+% script_2
+% f -> tx repitiendo cada bit R veces
+% R = 4 -> 0101, pues lo repito cada vez
+% transmito todo repitiendo cada bit
+
+% RX
+% Decodifico cogiendo bloques de n bits y sustituyo por el bit que se
+% repita mas
+r = errores/N
+tasa = 1000*r/R
+
+% script_3
+% Repite R veces cada bit de f y tx en bloques de R bits.
+
+% RX
+% Si no todos los R bits de cda bloque que tx son iguales -> retransmito
+% Al final comparo
+r = errores/N
+t = transmisiones/length(F)*N
+tasa = r * 1000 * 1/R*t
+
+% script_4
+% igual que script 3
+
+% si #0's > 2*#1's -> 0
+% si #1's > 2*#0's -> 1
+% sino retransmito
+% variables igual que script 3
+
+% script_5 es paridad
+
