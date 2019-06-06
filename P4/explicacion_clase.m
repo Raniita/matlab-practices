@@ -63,3 +63,17 @@ tasa = r * 1000 * 1/R*t
 
 % script_5 es paridad
 
+%% script 5
+
+% tanto porcentaje de error como tasa es muy bajo, esto pasa porque es muy
+% problable de que bailen 2 bits en un bloque por lo que no se llegan a
+% corregir los bits de error. 
+% Hay que modificar la codificacion para que sea mejor la codificacion, se
+% hace por Hamming
+% aunque se puede hacer por matrices, lo mejor es hacerlo sin ellas y
+% seguir la metodologia de los sccripts. 
+% lo que hacemos ahora es añadir 3 bits de paridad.
+
+%% Hamming y hamming con 2 detectar 2 bits y rtx
+% Apuntes en papel
+

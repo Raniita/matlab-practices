@@ -18,12 +18,14 @@
 % El resultado esta bien, pero tarda bastante. Have to fix.
 % Tiene que ejecutarse rapido con todas las R a la vez
 
+% Mis resultados
+% --> p=0.75, R = 7.00, r = 0.97, tasa = 18.59 t = 7.46 
+
 N = 1000;
 p = 0.75;
 f = ascii('hola mundo');
 
-% Con R=7 tiene que dar r = 0.81 t=116.43 bits/s
-for R=7
+for R=3:2:11
         exito = 0;
         rtx = 0;
         transmisiones = 0;
