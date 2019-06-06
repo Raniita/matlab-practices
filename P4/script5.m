@@ -1,6 +1,9 @@
+%% Apartado 3.5
 % Solo usar los bloques
 B = [2, 4, 8, 16];
 
+% cuando subamos de b2 debe dar un porcentaje de exito bajo, r puede salir
+% incluso 0.
 
 
 
