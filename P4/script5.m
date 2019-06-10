@@ -6,10 +6,10 @@ B = 0;
 % incluso 0.
 
 N = 1000;
-p = 0.95;
+p = 0.9;
 f = ascii('hola mundo');
 
-% Resultados
+% Resultados, p=0.75
 %--> B = 2.00, r = 0.73, tasa = 485.33 t = 1.00 
 %--> B = 4.00, r = 0.59, tasa = 470.40 t = 1.00 
 %--> B = 8.00, r = 0.37, tasa = 332.44 t = 1.00 

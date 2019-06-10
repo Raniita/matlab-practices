@@ -7,7 +7,7 @@
 % un 0. Al reves para detectar y corregir un 1
 
 N = 1000;
-p = 0.75;
+p = 0.9;
 f = ascii('hola mundo');
 
 for R=3:2:11

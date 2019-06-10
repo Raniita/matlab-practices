@@ -17,4 +17,6 @@ for i=1:N
 end
 
 r = exito / N;
-tasa = r * 1000 % CALCULAR LA TASA
+tasa = r * 1000; % CALCULAR LA TASA
+
+fprintf('--> r = %.2f y tasa = %.2f \n', r, tasa);
