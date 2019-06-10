@@ -90,7 +90,7 @@ for R=3:2:11
         end
         
         r = exito / N;
-        t = (transmisiones+rtx) / (length(f)*N); % Siempre mayor que 1
+        t = (transmisiones+rtx)/(length(f)*N); % Siempre mayor que 1
         tasa = r * 1000/(R*t);       
         
         fprintf('--> R = %.2f, r = %.2f, tasa = %.2f t = %.2f \n', R, r, tasa, t);

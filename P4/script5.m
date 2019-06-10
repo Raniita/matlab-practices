@@ -75,7 +75,7 @@ for b=1:length(Bloques)
     % Para el calculo de las tasas, mejor usar
     r = exito / N;
     % porque transmitimos de B en B bits, antes tx todos los bits de ascii('Hola mundo').
-    t = transmisiones/(length(f)*N/B);
+    t = (transmisiones+rtx)/(length(f)*N/B);
     tasa = r*1000/((B+1)/B * t);
     
     fprintf('--> B = %.2f, r = %.2f, tasa = %.2f t = %.2f \n', B, r, tasa, t);

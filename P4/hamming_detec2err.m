@@ -111,9 +111,6 @@ for i=1:N
     end
 end
 
-% Fix transmisiones
-%transmisiones = transmisiones - rtx;
-
 % Formulas dadas por el profesor en la pizarra
 r = exito / N;
 t = transmisiones/((length(f)/B)*N);
