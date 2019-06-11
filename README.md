@@ -1,5 +1,5 @@
 # Matlab practices for TxData
-Scripts matlab
+Scripts matlab for university
 
 * P1. Entropy
 * P2. Huffman
